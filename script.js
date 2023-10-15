@@ -1,7 +1,6 @@
 const inputBox = document.querySelector(`.input-box`);
 const searchBtn = document.getElementById("searchBtn");
-const weather_img = document.querySelector(`.weather-img`);
-// import img from `../assets/`
+const weather_img = document.getElementById(`weather-img`);
 
 
 const temperature = document.querySelector(`.temperature`);
@@ -9,6 +8,7 @@ const description = document.querySelector(`.description`);
 const humidity = document.getElementById(`humidity`);
 const wind_speed = document.getElementById(`wind-speed`);
 const location_not_found = document.querySelector(`.location-not-found`);
+const imagenotfound = document.getElementById(`notfound`);
 const weather_body = document.querySelector(`.weather-body`);
 async function checkWeather(city) {
   
@@ -18,6 +18,7 @@ async function checkWeather(city) {
   const weatherData = await response.json();
 
   if(weatherData.cod === `404`){
+    imagenotfound.src=`./assets/404.png`;
     location_not_found.style.display ="flex";
     weather_body.style.display ="none";
     console.log("error");
